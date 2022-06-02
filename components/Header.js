@@ -1,9 +1,10 @@
 import Link from "next/link"
+import Image from "next/image"
 export default function Header() {
   return (
-    <nav className="bg-[#FFC017] p-5 border-b-2 border-black flex justify-between">
+    <nav className="bg-yellow p-5 border-b-2 border-black flex justify-between">
       <Link href={"/"}>
-        <img className="w-44 cursor-pointer" src="/images/logo.png" alt="" />
+        <Image className="cursor-pointer" width={176} height={48} objectFit="contain" src="/images/logo.png"/>
       </Link>
       <div className="flex items-center">
         <div className="hidden md:flex space-x-4">

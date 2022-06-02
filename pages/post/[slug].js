@@ -3,6 +3,7 @@ import Header from "../../components/Header";
 import PortableText from "react-portable-text";
 import { set, useForm } from "react-hook-form";
 import { useState } from "react";
+import Image from "next/image";
 
 function Post({ post }) {
   const { register, handleSubmit, formState } = useForm();
@@ -26,10 +27,12 @@ function Post({ post }) {
       <div className="max-w-4xl mx-auto p-5">
         <div className="flex space-x-4">
           <div className="space-y-1">
-            <img
-              className="h-12 w-12 rounded-full"
+            <Image
+              width={48}
+              height={48}
+              layout="fixed"
+              className="rounded-full"
               src={urlFor(post.author.image).url()}
-              alt=""
             />
             <h2>{post.author.name}</h2>
           </div>
@@ -37,10 +40,13 @@ function Post({ post }) {
         </div>
 
         <h1 className="mt-5 text-3xl font-bold">{post.title}</h1>
-        <img
+        <Image
+          width='100%'
+          height='65%'
+          layout="responsive"
           src={urlFor(post.mainImage).url()}
-          className="w-full object-cover py-10 md:px-10"
-          alt=""
+          className="md:px-10"
+          objectFit="contain"
         />
 
         <PortableText

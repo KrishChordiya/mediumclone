@@ -1,6 +1,7 @@
 import Header from "../components/Header.js";
 import { client, urlFor } from "../sanity";
 import Link from "next/link"
+import Image from "next/image"
 
 export default function Home({posts}) {
   return (
@@ -27,7 +28,7 @@ export default function Home({posts}) {
                   <p>{post.title}</p>
                   <p>{post.description} by {post.author.name}</p>
                 </div>
-                <img className="w-12 h-12 rounded-full" src={urlFor(post.author.image).url()} alt="" />
+                <Image className="rounded-full" layout="fixed" width={48} height={48} src={urlFor(post.author.image).url()}/>
               </div>
             </div>
           </Link>
