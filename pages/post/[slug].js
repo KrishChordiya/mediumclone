@@ -32,6 +32,7 @@ function Post({ post }) {
               height={48}
               layout="fixed"
               className="rounded-full"
+              alt="author"
               src={urlFor(post.author.image).url()}
             />
             <h2>{post.author.name}</h2>
@@ -45,6 +46,7 @@ function Post({ post }) {
           height='65%'
           layout="responsive"
           src={urlFor(post.mainImage).url()}
+          alt="mainImage"
           className="md:px-10"
           objectFit="contain"
         />
@@ -131,7 +133,7 @@ function Post({ post }) {
           <div className="mt-5 p-2 max-w-2xl mx-auto rounded-md shadow-sm shadow-yellow">
             <h2 className="text-3xl mx-auto w-fit mb-2">Comments</h2>
             {post.comments.map((comment)=>(
-                <p id={comment._id}><span className="font-medium mr-1">{comment.name}:</span>{comment.comment}</p>
+                <p key={comment._id} id={comment._id}><span className="font-medium mr-1">{comment.name}:</span>{comment.comment}</p>
             ))}
           </div>
 

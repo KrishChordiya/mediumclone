@@ -13,7 +13,7 @@ export default function Home({posts}) {
           <p className="text-lg font-medium max-w-[100%]">Discover stories, thinking, and expertise from writers on any topic</p>
           <h3 className="bg-black text-white py-2 px-4 w-fit rounded-full cursor-pointer">Start reading</h3>
         </div>
-        <Image layout="raw" width="400" height="1" className="hidden md:inline-flex" src="https://accountabilitylab.org/wp-content/uploads/2020/03/Medium-logo.png"/>
+        <Image alt="M" layout="raw" width="400" height="1" className="hidden md:inline-flex" src="https://accountabilitylab.org/wp-content/uploads/2020/03/Medium-logo.png"/>
       </div>
 
       {/* Posts  */}
@@ -22,13 +22,13 @@ export default function Home({posts}) {
         {posts.map((post) => (
           <Link key={post._id} href={`/post/${post.slug.current}`}>
             <div className="border rounded-lg cursor-pointer hover:scale-105 transition-transform duration-200">
-              <Image layout="responsive" width={"100%"} height="69" src={urlFor(post.mainImage).url()}/>
+              <Image alt="post" layout="responsive" width={"100%"} height="69" src={urlFor(post.mainImage).url()}/>
               <div className="flex justify-between p-5">
                 <div className="basis-4/5">
                   <p>{post.title}</p>
                   <p>{post.description} by {post.author.name}</p>
                 </div>
-                <Image className="rounded-full" layout="fixed" width={48} height={48} src={urlFor(post.author.image).url()}/>
+                <Image alt="author" className="rounded-full" layout="fixed" width={48} height={48} src={urlFor(post.author.image).url()}/>
               </div>
             </div>
           </Link>
